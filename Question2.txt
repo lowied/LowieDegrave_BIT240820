@@ -1,4 +1,5 @@
-UF
+__________UF__________
+
 PatientNumber
 PatientName
 Birthdate
@@ -8,3 +9,34 @@ Dosage
 DoctorNumber
 Doctor
 Assistant
+
+__________1NF__________
+
+PatientNumber
+PatientName
+Birthdate
+PrescriptionNumber
+Medicine
+Dosage
+DoctorNumber
+Doctor
+Assistant
+
+There are no repeats in this data. All keys are unique. Therefore UF = 1NF
+
+
+__________2NF__________
+
+Patient(PatientNumber,PatientName,Birthdate,PrescriptionNumber,DoctorNumber,Dosage)
+Medication(PrescriptionNumber,Medicine)
+Doctor(DoctorNumber,Doctor,Assistant)
+
+For 2NF, I created 3 different columns and placed the non-key attributes with their corresponding key attributes. Dosage is dependant on patient and on the medication, so I kept it in Patient.
+
+__________3NF__________
+Patient(PatientNumber,PatientName,Birthdate,DoctorNumber)
+Medication(PrescriptionNumber,Medicine)
+Doctor(DoctorNumber,Doctor,Assistant)
+Dosage(PatientNumber,PrescriptionNumber,Dosage)
+
+I created a separate table for dosage because it was dependant on both the patient and the medication. 
