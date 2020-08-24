@@ -1,0 +1,41 @@
+_______________________________Question 4_______________________________
+SELECT gene_name, (seq_region_end-seq_region_start)+1 AS length FROM gene ORDER BY length LIMIT 1;
+
+gene_name: TRDD1
+gene_length: 8
+
+
+
+
+_______________________________Question 5_______________________________
+SELECT gene_name, count(transcript_id) AS transcript_count FROM gene g JOIN transcript t ON g.gene_id=t.gene_id GROUP BY gene_name ORDER BY transcript_count DESC LIMIT 1;
+
+gene_name: U6
+transcript_count: 1329
+
+
+_______________________________Question 6_______________________________
+SELECT chromosome, count(gene_id) AS gene_count FROM gene WHERE DESCRIPTION LIKE "%cancer%" GROUP BY chromosome ORDER BY gene_count DESC LIMIT 1 OFFSET 1;
+
+chromosome: 9
+gene_count: 5
+
+
+SELECT chromosome, count(e.exon_id) AS exon_count FROM gene g JOIN transcript t on g.gene_id=t.gene_id JOIN exon_transcript et ON t.transcript_id=et.transcript_id JOIN exon e ON et.exon_id=e.exon_id WHERE chromosome=9 GROUP BY chromosome;
+
+chromosome: 9
+exon_count: 45679
+
+_______________________________Question 7_______________________________
+
+SELECT count(*) FROM exon;
+642590
+
+SELECT count(*) FROM exon_transcript;
+1178393
+
+An exon can contain multiple transcription regions.
+
+
+
+
