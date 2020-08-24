@@ -1,0 +1,10 @@
+UF
+PatientNumber
+PatientName
+Birthdate
+PrescriptionNumber
+Medicine
+Dosage
+DoctorNumber
+Doctor
+Assistant
