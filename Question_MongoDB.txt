@@ -1,0 +1,3 @@
+___________Question 9_____________
+
+db.medicine.count({percentage_of_side_effects:{$gt:12}})
